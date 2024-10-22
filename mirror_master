@@ -188,7 +188,7 @@ if [ -e "$arquivo_controle" ]; then
         echo "Verificacoes de conteudo e MD5 bem-sucedidas. Iniciando rsync..."
 
         # Comando rsync
-        echo rsync -av --delete "$ponto_montagem_origem/" "$ponto_montagem_destino/"
+        rsync -av --delete "$ponto_montagem_origem/" "$ponto_montagem_destino/"
 
         echo "rsync concluido com sucesso."
     else
@@ -200,6 +200,6 @@ fi
 
 # Procedimento para desmontar os pontos de montagem
 echo "Desmontando pontos de montagem..."
-#umount "$ponto_montagem_origem"
-#umount "$ponto_montagem_destino"
+umount "$ponto_montagem_origem"
+umount "$ponto_montagem_destino"
 echo "Pontos de montagem desmontados com sucesso."
